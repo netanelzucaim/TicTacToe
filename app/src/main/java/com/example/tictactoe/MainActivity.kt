@@ -1,6 +1,9 @@
 package com.example.tictactoe
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
+
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,5 +19,8 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
     }
+
+
 }
