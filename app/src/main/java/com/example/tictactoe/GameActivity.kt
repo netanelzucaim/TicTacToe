@@ -44,11 +44,8 @@ class GameActivity : AppCompatActivity() {
         // game reset function will be called
         // if someone wins or the boxes are full
         if (!gameActive) {
-//            var rematahcButton = findViewById<Button>(R.id.exit_button).setOnClickListener { gameReset(view)
-//                //Reset the counter
-//                counter = 0
-//            }
-            gameReset(view)
+
+            gameReset()
             //Reset the counter
             counter = 0
         }
@@ -68,7 +65,7 @@ class GameActivity : AppCompatActivity() {
             // mark this position
             gameState[tappedImage] = activePlayer
 
-            // this will give a motion
+            // this will give a motion`
             // effect to the image
             img.translationY = -1000f
 
@@ -108,10 +105,8 @@ class GameActivity : AppCompatActivity() {
                     gameActive = false
                     if (gameState[winPosition[0]] === 0) {
                         winnerStr = "X has won"
-                        updateScore("score_playerA")
                     } else {
                         winnerStr = "O has won"
-                        updateScore("score_playerB")
                     }
                     // Update the status bar for winner announcement
                     val status = findViewById<TextView>(R.id.status)
@@ -127,7 +122,7 @@ class GameActivity : AppCompatActivity() {
     }
 
     // reset the game
-    fun gameReset(view: View?) {
+    fun gameReset() {
         gameActive = true
         activePlayer = 0
 
@@ -159,14 +154,15 @@ class GameActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-    }
-    private fun updateScore(player: String) {
-        val prefs = getSharedPreferences("game_prefs", MODE_PRIVATE)
-        var currentScore = prefs.getInt(player, 0)
-        currentScore++
-        val editor = prefs.edit()
-        editor.putInt(player, currentScore)
-        editor.apply()
+        var rematchButton = findViewById<Button>(R.id.rematch)
+        rematchButton.setOnClickListener {
+            gameReset()
+            //Reset the counter
+            counter = 0
+        }
+        for (i in 1..9) {
+            val resID = resources.getIdentifier("block$i", "id", packageName)
+            findViewById<ImageView>(resID).setOnClickListener { playerTap(it) }
+        }
     }
 }

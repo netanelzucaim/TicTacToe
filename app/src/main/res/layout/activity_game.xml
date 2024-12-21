@@ -9,18 +9,6 @@
     tools:context=".GameActivity">
 
     <!--title text-->
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        android:text="GFG Tic Tac Toe"
-        android:textSize="@dimen/title_size"
-        android:textStyle="bold"
-        app:fontFamily="@font/audiowide"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <!--image of the grid-->
     <ImageView
@@ -38,11 +26,10 @@
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="420dp"
-        android:layout_marginTop="35dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        tools:layout_editor_absoluteY="90dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,16 +43,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="playerTap"
                 android:padding="20sp"
                 android:tag="0" />
 
             <ImageView
                 android:id="@+id/block2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="167dp"
                 android:layout_weight="1"
-                android:onClick="playerTap"
                 android:padding="20sp"
                 android:tag="1" />
 
@@ -74,7 +59,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="playerTap"
                 android:padding="20sp"
                 android:tag="2" />
         </LinearLayout>
@@ -90,7 +74,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="playerTap"
                 android:padding="20sp"
                 android:tag="3" />
 
@@ -99,7 +82,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="playerTap"
                 android:padding="20sp"
                 android:tag="4" />
 
@@ -108,7 +90,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="playerTap"
                 android:padding="20sp"
                 android:tag="5" />
         </LinearLayout>
@@ -124,7 +105,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="playerTap"
                 android:padding="20sp"
                 android:tag="6" />
 
@@ -133,16 +113,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="playerTap"
                 android:padding="20sp"
                 android:tag="7" />
-
             <ImageView
                 android:id="@+id/block9"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="playerTap"
                 android:padding="20sp"
                 android:tag="8" />
         </LinearLayout>
@@ -156,7 +133,7 @@
         android:id="@+id/status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/audiowide"
         android:text="Status"
         android:textSize="@dimen/dimension_size"
@@ -166,15 +143,17 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <Button
-        android:id="@+id/exit_button"
+        android:id="@+id/rematch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Exit Game"
+        android:background="#6848A0"
+        android:text="Rematch"
         android:textSize="@dimen/button_size"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@color/green"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/status" />
+        app:layout_constraintTop_toBottomOf="@+id/status"
+        app:layout_constraintVertical_bias="0.247" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
