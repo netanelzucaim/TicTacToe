@@ -130,15 +130,11 @@ class GameActivity : AppCompatActivity() {
         Arrays.fill(gameState, 2)
 
         // remove all the images from the boxes inside the grid
-        (findViewById<View>(R.id.block1) as ImageView).setImageResource(0)
-        (findViewById<View>(R.id.block2) as ImageView).setImageResource(0)
-        (findViewById<View>(R.id.block3) as ImageView).setImageResource(0)
-        (findViewById<View>(R.id.block4) as ImageView).setImageResource(0)
-        (findViewById<View>(R.id.block5) as ImageView).setImageResource(0)
-        (findViewById<View>(R.id.block6) as ImageView).setImageResource(0)
-        (findViewById<View>(R.id.block7) as ImageView).setImageResource(0)
-        (findViewById<View>(R.id.block8) as ImageView).setImageResource(0)
-        (findViewById<View>(R.id.block9) as ImageView).setImageResource(0)
+        for (i in 1..9) {
+            val resID = resources.getIdentifier("block$i", "id", packageName)
+            val img = findViewById<ImageView>(resID)
+            img.setImageResource(0)
+        }
 
         val status = findViewById<TextView>(R.id.status)
         status.text = "X's Turn - Tap to play"
