@@ -32,7 +32,7 @@ class GameActivity : AppCompatActivity() {
         intArrayOf(0, 3, 6), intArrayOf(1, 4, 7), intArrayOf(2, 5, 8),
         intArrayOf(0, 4, 8), intArrayOf(2, 4, 6)
     )
-    var counter: Int = 0
+    var NumOfTurns: Int = 0
 
 
     // this function will be called every time a
@@ -46,18 +46,18 @@ class GameActivity : AppCompatActivity() {
         if (!gameActive) {
 
             gameReset()
-            //Reset the counter
-            counter = 0
+            //Reset the NumOfTurns
+            NumOfTurns = 0
         }
 
         // if the tapped image is empty
         if (gameState[tappedImage] === 2) {
-            // increase the counter
+            // increase the NumOfTurns
             // after every tap
-            counter++
+            NumOfTurns++
 
             // check if its the last box
-            if (counter == 9) {
+            if (NumOfTurns == 9) {
                 // reset the game
                 gameActive = false
             }
@@ -91,9 +91,9 @@ class GameActivity : AppCompatActivity() {
             img.animate().translationYBy(1000f).setDuration(300)
         }
         var flag = 0
-        // Check if any player has won if counter is > 4 as min 5 taps are
+        // Check if any player has won if NumOfTurns is > 4 as min 5 taps are
         // required to declare a winner
-        if (counter > 4) {
+        if (NumOfTurns > 4) {
             for (winPosition in winPositions) {
                 if (gameState[winPosition[0]] === gameState[winPosition[1]] && gameState[winPosition[1]] === gameState[winPosition[2]] && gameState[winPosition[0]] !== 2) {
                     flag = 1
@@ -114,7 +114,7 @@ class GameActivity : AppCompatActivity() {
                 }
             }
             // set the status if the match draw
-            if (counter == 9 && flag == 0) {
+            if (NumOfTurns == 9 && flag == 0) {
                 val status = findViewById<TextView>(R.id.status)
                 status.text = "Match Draw"
             }
@@ -153,8 +153,8 @@ class GameActivity : AppCompatActivity() {
         var rematchButton = findViewById<Button>(R.id.rematch)
         rematchButton.setOnClickListener {
             gameReset()
-            //Reset the counter
-            counter = 0
+            //Reset the NumOfTurns
+            NumOfTurns = 0
         }
         for (i in 1..9) {
             val resID = resources.getIdentifier("block$i", "id", packageName)
